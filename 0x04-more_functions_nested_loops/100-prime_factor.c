@@ -1,29 +1,27 @@
-#include <stdio.h>
-#include <math.h>
 #include "main.h"
+#include <stdio.h>
 
+/**
+ * main - Entry point
+ *
+ * Return: Always 0 (Success)
+ */
 int main(void)
 {
-    long int n = 612852475143;
-    long int factor = 2;
-    long int largest_factor = 2;
+long num = 612852475143;
+int i = 2;
+int max = 0;
 
-    while (n > 1)
-    {
-        if (n % factor == 0)
-        {
-            largest_factor = factor;
-            n /= factor;
-            while (n % factor == 0)
-            {
-                n /= factor;
-            }
-        }
-        factor++;
-    }
-
-    printf("%ld\n", largest_factor);
-
-    return 0;
+while (num != 1)
+{
+	while (num % i == 0)
+	{
+		if (i > max)
+			max = i;
+	num = num / i;
+	}
+i++;
 }
-
+printf("%d\n", max);
+return (0);
+}
