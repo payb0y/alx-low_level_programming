@@ -1,28 +1,28 @@
 #include <stdio.h>
+#include <math.h>
 
-/**
- * main - entry point
- *
- * Return: always 0 (sucess)
- */
 int main(void)
 {
-	unsigned long int num = 612852475143;
-	unsigned long int prim;
+    long int n = 612852475143;
+    long int factor = 2;
+    long int largest_factor = 2;
 
-	prim = 3;
-	while (prim < num / 2)
-	{
-		if ((num % prim) == 0)
-		{
-			if((prim % 3) == 2)
-				printf(",%lu ", prim);
-		}
+    while (n > 1)
+    {
+        if (n % factor == 0)
+        {
+            largest_factor = factor;
+            n /= factor;
+            while (n % factor == 0)
+            {
+                n /= factor;
+            }
+        }
+        factor++;
+    }
 
-		prim+=2;
-	}
+    printf("%ld\n", largest_factor);
 
-	putchar('\n');
-	return (0);
+    return 0;
 }
 
